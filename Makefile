@@ -40,6 +40,8 @@ src: src/github.com/containerd/containerd src/github.com/opencontainers/runc
 common/containerd.service: checkout
 	# upstream systemd unit uses /usr/local/bin, whereas our packages use /usr/bin
 	sed 's#/usr/local/bin/containerd#/usr/bin/containerd#g' src/github.com/containerd/containerd/containerd.service > $@
+	echo "containerd service file: "
+	cat $@
 
 ifdef RUNC_DIR
 src/github.com/opencontainers/runc:
